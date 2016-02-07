@@ -8,15 +8,18 @@ process.stdin.on('data', function (data) {
 
 function main(input){
 
-	switch(input){
-		case 'Alice':
-			console.log('Hi Alice');
-			break;
-		case 'Bob':
-			console.log('Hi Bob');
-			break;
-		default:
-			console.log('Sorry only Alice and Bob are greeted :(');
-		break;
+	inputArr = input.split('');
+	var i = 0;
+	var j = inputArr.length-1;
+
+	while(i<j){
+		// Swap elements at i & j
+		tmp=inputArr[i];
+		inputArr[i]=inputArr[j];
+		inputArr[j]=tmp;
+		i++;
+		j--;
 	}
+
+console.log(inputArr.join(''));
 }

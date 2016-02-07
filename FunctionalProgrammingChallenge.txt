@@ -1,0 +1,29 @@
+JavaScript as you know doesn't have its own library for common utility operations like say find min, max , sum of elements etc in array as you find in other languages. 
+
+Lets try to build a simple library for that.
+
+Lets assume we are dealing only with array of numbers to start with. Our library should support the following methods :
+
+Each of these methods takes the array as input and returns the expected output
+
+
+1. min(arr) - Finds the minimum number in array and returns it
+2. max(arr) - Finds the maximum number in array and returns it
+3. sum(arr) - Finds the total of all numbers in array and returns it
+4. avg(arr) - Finds the average of all numbers in array and returns it
+
+Now lets say we want to add methods which would return all numbers in a array which is less than a given number or greater than a number or equal to a number. So we will have these methods in our library which takes 2 arguments - the array and a input num.
+
+5. minOf(arr,num) 
+6. maxOf(arr,num)
+7. isNumPresent(arr,num)
+
+Now that we have so many methods in our library each doing its own task. This is a good start but as time goes we cannot keep adding many methods each doing a specific job. It becomes difficult to maintain. 
+its time to apply the concepts of functional programming to our library to make it generic. 
+
+Lets add a method called filter which would accept 2 arguments - an array and function. This function would tell us what condition/check to apply to each element in the array and return a list of elements which satisfies the condition.
+
+So our filter method would look like this.
+
+8. filter(arr,fn)  -- returns an array with numbers satisfying the condition. This can be used to replace methods 5 & 6.
+9. reduce(arr,fn)  -- returns an array with n
