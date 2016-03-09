@@ -55,27 +55,40 @@ var Employees = [
 // The function passed to this updateSalary() is going to take care of 
 // how to update the salary. The value passed
 
-function updateSalary(empArr,fn,value){
+
+
+function updateSalary(empArr,fn){
 	totEmployees =	empArr.length;
 	for(i=0;i<totEmployees;i++){
-		empArr[i].salary = fn(empArr[i],value);
+		empArr[i].salary = fn(empArr[i].salary);
 		console.log(empArr[i].name+' gets '+empArr[i].salary);
 	}
 }
 
 
-var addBonus = function(emp,bonusAmt){
-	return emp.salary+bonusAmt;
-}
-
 // If I want to add 10000 USD bonus to all employees,
 
-updateSalary(Employees,addBonus,10000);
+function addBonus(amt){
+	return function(salary){
+		return salary+amt;
+	}
+}
 
-var addIncrement = function(emp,increment){
-	return emp.salary+emp.salary*increment*0.01;
+updateSalary(Employees,addBonus(10000));
+
+
+function addIncrement(percentage){
+	return function(salary){
+		return salary+(salary*percentage*0.01);	
+	}
+	
 }
 
 // If I want to give 10% increment to all employees
-updateSalary(Employees,addIncrement,10);
+updateSalary(Employees,addIncrement(10));
+
+
+
+
+
 
