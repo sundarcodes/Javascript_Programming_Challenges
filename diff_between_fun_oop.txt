@@ -1,0 +1,7 @@
+
+
+In a fight between a bear and an alligator, the terrain determines the outcome.
+
+Whenever I write some code to deal with data about people then functional programming seems to work best.
+
+Whenever I write some code to simulate people then object-oriented programming seems to work best.

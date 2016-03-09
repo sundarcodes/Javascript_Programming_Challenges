@@ -67,8 +67,11 @@ var filter = function(arr,fn){
 //User Code
 
 filter([1,2,4,3,6,5],function(item){
-	if (item > 5){
+	if (item == 5){
 		return item;
+	}
+	else {
+		return null;
 	}
 });
 

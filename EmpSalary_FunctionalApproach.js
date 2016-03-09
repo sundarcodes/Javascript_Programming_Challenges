@@ -31,6 +31,7 @@ var Employees = [
 	name:'Emp8',
 	salary: 8000
 },
+
 {
 	name:'Emp9',
 	salary: 6000
@@ -41,24 +42,40 @@ var Employees = [
 }
 ];
 
-var addBonus = function(sal,bonusAmt){
-	return sal+bonusAmt;
-}
 
-var addIncrement = function(sal,incrementPercent){
-	return sal+sal*incrementPercent*0.01;
-}
+// Functional approach to this problem
 
-function updateSalary(empArr,fn,bonusAmt){
+// Identify what is going to be changing and what is going to be constant.
+// Here in our example, updation of salaries is going to be constant but how you 
+// update is going to change. So apply a function which is going to handle the change 
+// for you to each of the elements of the array.
+// Here we write a function updateSalary which takes array and a function. 
+// This function updateSalary is going to handle the constant part of 
+// going through the array and updating the salaries of each employee
+// The function passed to this updateSalary() is going to take care of 
+// how to update the salary. The value passed
+
+function updateSalary(empArr,fn,value){
 	totEmployees =	empArr.length;
 	for(i=0;i<totEmployees;i++){
-		empArr[i].salary =	fn(empArr[i].salary,bonusAmt);
+		empArr[i].salary = fn(empArr[i],value);
 		console.log(empArr[i].name+' gets '+empArr[i].salary);
 	}
 }
 
-// Add Bonus
-updateSalary(Employees,addBonus,5000);
-updateSalary(Employees,addIncrement,10);
 
+var addBonus = function(emp,bonusAmt){
+	return emp.salary+bonusAmt;
+}
+
+// If I want to add 10000 USD bonus to all employees,
+
+updateSalary(Employees,addBonus,10000);
+
+var addIncrement = function(emp,increment){
+	return emp.salary+emp.salary*increment*0.01;
+}
+
+// If I want to give 10% increment to all employees
+updateSalary(Employees,addIncrement,10);
 

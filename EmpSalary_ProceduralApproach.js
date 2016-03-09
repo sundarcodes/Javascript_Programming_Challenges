@@ -49,9 +49,10 @@ var Employees = [
 ];
 
 
-addBonus(Employees,5000);
+// Procedural approach to programming
 
-addIncrement(Employees,10);
+// Now if you want to add a bonus of 10000 USD to all employees
+addBonus(Employees,10000);
 
 function addBonus(empArr,bonusAmount){
 
@@ -61,8 +62,10 @@ function addBonus(empArr,bonusAmount){
 		empArr[i].salary =	empArr[i].salary+bonusAmount;
 		console.log(empArr[i].name+' gets '+empArr[i].salary);
 	}
-
 }
+
+// Now if you want to add an increment of 10% to all employees
+addIncrement(Employees,10);
 
 function addIncrement(empArr,incrementPercent){
 
@@ -73,5 +76,4 @@ function addIncrement(empArr,incrementPercent){
 	}
 
 }
-
 
