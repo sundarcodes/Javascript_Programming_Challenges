@@ -21,27 +21,29 @@ class SalaryUpdater{
 	constructor(employeesList){
 		this.employeesList=employeesList;
 	}
-	addBonus(bonusAmt){
+	updateSalaries(fn){
 	var i = 0;
 	var len = employeesList.length;
 	for(i=0;i<len;i++){
-			employeesList[i].updateSalary(employeesList[i].getSalary()+bonusAmt);
-			employeesList[i].printInfo();
+		employeesList[i].updateSalary(fn(employeesList[i].getSalary()));
+		employeesList[i].printInfo();	
 		}
 	}
-	addIncrement(percentage){
-	var i = 0;
-	var len = employeesList.length;
-	for(i=0;i<len;i++){
-			var incrementedSalary=employeesList[i].getSalary()+
-			(percentage*employeesList[i].getSalary()*0.01);
-			employeesList[i].updateSalary(incrementedSalary);
-			employeesList[i].printInfo();
-		}
-	}
-
 }
 
+
+function addBonus(amt){
+	return function(salary){
+		return salary+amt;
+	}
+}
+
+function addIncrement(percentage){
+	return function(salary){
+		return salary+(salary*percentage*0.01);	
+	}
+	
+}
 
 var employeesList=[];
 var emp = new Employee('Emp1',1000);
@@ -56,8 +58,9 @@ var emp = new Employee('Emp5',3000);
 employeesList.push(emp);
 
 var salaryUpdater = new SalaryUpdater(employeesList);
-salaryUpdater.addBonus(10000);
+salaryUpdater.updateSalaries(addBonus(10000));
 console.log('****************');
-salaryUpdater.addIncrement(10);
+salaryUpdater.updateSalaries(addIncrement(10));
+
 
 
