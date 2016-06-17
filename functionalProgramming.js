@@ -50,12 +50,12 @@ function equalTo(array,var){
 // Coming to our aid is functional Programming
 
 // Library Code
-// Filter
+// Map
 // Apply a the function to all the elements in array 
-var filter = function(arr,fn){
+var map = function(arr,fn){
 	var result = [];
 	for(i=0;i<array.length;i++){
-		result.push(fn(a[i]));
+		result.push(fn(arr[i]));
 	}
 	return result;
 }
@@ -66,8 +66,8 @@ var filter = function(arr,fn){
 
 //User Code
 
-filter([1,2,4,3,6,5],function(item){
-	if (item == 5){
+map([1,2,4,3,6,5],function(item){
+	if (item > 5){
 		return item;
 	}
 	else {
@@ -79,7 +79,7 @@ filter([1,2,4,3,6,5],function(item){
 
 //User Code
 
-filter([1,2,4,3,6,5],function(item){
+map([1,2,4,3,6,5],function(item){
 	if (item < 5){
 		return item;
 	}
@@ -90,7 +90,7 @@ filter([1,2,4,3,6,5],function(item){
 
 //User Code
 
-filter([1,2,4,3,6,5],function(item){
+map([1,2,4,3,6,5],function(item){
 	if (item == 5){
 		return item;
 	}
@@ -101,7 +101,7 @@ filter([1,2,4,3,6,5],function(item){
 
 //User Code
 
-filter([1,2,4,3,6,5],function(item){
+map([1,2,4,3,6,5],function(item){
 	if (item == 5){
 		return item;
 	}
@@ -112,7 +112,7 @@ filter([1,2,4,3,6,5],function(item){
 
 //User Code
 
-filter([1,2,4,3,6,5],function(item){
+map([1,2,4,3,6,5],function(item){
 	if (item % 3 == 0){
 		return item;
 	}
@@ -120,15 +120,6 @@ filter([1,2,4,3,6,5],function(item){
 
 
 // Functional vs Procedural/modular programming
-
-
-// Exercise
-
-var a = add(2, 5); // 7
-var b = add(2)(5); // 7
-
-console.log(a);
-console.log(b);
 
 
 // Build a library function called map which will take an array and function as arguments

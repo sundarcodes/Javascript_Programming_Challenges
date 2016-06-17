@@ -14,12 +14,12 @@ var foo = 10*20+30;
 ( window.foo || ( window.foo = "bar" ) );
 
 //Question: What is the outcome of the two alerts below?
-var foo = "Hello";
-(function() {
-var bar = " World";
-alert(foo + bar);
-})();
-alert(foo + bar);
+  var foo = "Hello";
+  (function() {
+  var bar = " World";
+  alert(foo + bar);
+  })();
+  alert(foo + bar);
 
 
 //Question: What is the value of foo.length?
@@ -36,7 +36,7 @@ foo.x = foo = {n: 2};
 console.log('one');
 setTimeout(function() {
 	console.log('two');
-},1000);
+},0);
 console.log('three');
 console.log('three1');
 console.log('three2');
@@ -64,9 +64,102 @@ var nameLessFunction = function(){
 add(2, 5); // 7
 add(2)(5); // 7
 
-Please complete your Jquery exercises (Animation,TIC TAC TOE)
-and then proceed to doing the AJAX exercise for today which is extending the weather app to get the forecast
 
-https://github.com/sundarcodes/JavaScript-Exercises/tree/master/AJAX
+// Explain the below code with relation to Execution Context and Event Queue
+// Assume you are the JS engine and tell us how this code will be handled.
+function a(){
+  var x = 1;
+  setTimeout(function(){
+    console.log(x);
+  },0);
+  x = 2;
+}
+a();
+x = 3;
 
 
+// What are the output of the following and what JS concept it works on ?
+// Code Snippet # 1
+function a(){
+  var x = 1;
+  return function(){
+    console.log(x);
+  };
+}
+b = a();
+b();
+
+// Code Snippet # 2
+function a(){
+  var x = 1;
+  (function(){
+    console.log(x);
+  }());
+}
+a();
+
+// Code Snippet # 3
+function a(){
+  var x = 1;
+  b = function(){
+    console.log(x);
+  };
+  b();
+}
+a();
+
+// Code Snippet # 4
+function a(){
+  var x = 1;
+  b = function(){
+    console.log(x);
+  };
+}
+a();
+b();
+
+// Code Snippet # 5
+function a(){
+  var x = 1;
+  var b = function(){
+    console.log(x);
+  };
+}
+a();
+b();
+
+// What is the output and why ?
+
+var Person = function(name,age){
+  this.name = name;
+  this.age = age;
+  return;
+}
+
+var person1 = new Person();
+console.log(person1);
+
+// Classical vs Protypal Inheritance
+// Convert this to protypal inheritance
+
+class LivingBeing {
+  constructor(type){
+    this.type = type;
+  }
+  whoAmI(){
+    console.log('I am a ' + this.type);
+  }
+}
+
+class Human extends LivingBeing {
+  constructor(name){
+    super('Human');
+    this.name = name;
+  }
+}
+
+var person = new Human('Sundar');
+person.whoAmI();
+
+
+// Implement array.map, array.filter and array.reduce
